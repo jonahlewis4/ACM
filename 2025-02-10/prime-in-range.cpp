@@ -10,11 +10,12 @@ int square_root_n = std::floor(std::sqrt(n));
 int main(){
     std::vector<bool> primes(n + 1, true);
     for(int i = 2; i <= square_root_n; i++){
+        //skip the current number if it is composite.
         if(!primes[i])
         {
             continue;
         }
-        for(int j = 2 * i; j <= n; j += i){
+        for(int j = i * i; j <= n; j += i){
             primes[j] = false;
         }
     }
